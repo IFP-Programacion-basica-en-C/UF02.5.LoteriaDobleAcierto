@@ -53,6 +53,11 @@ void combinacionUsuario(int v[])
 	{
 		v[i] = pideNumEntreRango(0, 9);
 	}
+	if(v[0]==v[1])
+	{
+		printf("\nLos numeros selecionados no e pueden repetir.");
+		v[1]= pideNumEntreRango(0,9);	
+	}
 	printf("\nLa combinaion del usuario es: ");
 	for (int i=0; i<2; i++)
 	{
@@ -74,10 +79,15 @@ pideNumEntreRango(min, max)
 }
 void combinacionGanadora(int v[])
 {
-for (int i = 0; i < 2; i++)
+do
+{
+	for (int i = 0; i < 2; i++)
 	{
 		v[i] = rand() %10;
 	}
+} while (v[0]==v[1]);
+
+
 printf("\nLa combinaion ganadora es: ");
 	for (int i=0; i<2; i++)
 	{
