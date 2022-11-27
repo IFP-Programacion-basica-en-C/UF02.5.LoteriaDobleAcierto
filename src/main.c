@@ -22,11 +22,44 @@ posición, simplemente es necesario que sean iguales.
 */
 
 #include <stdio.h>
+void combinacionUsuario(int []);
+int pideNumEntreRango(int, int);
+// void combinacionGanadora();
+// int calculaAciertos(int [], int []);
 
 int main(){
+int vUser[2];
+
+
+printf("BIENVENIDOS AL PROGRAMA DE LOTERIA DOBLE ACIERTO:\n");
+combinacionUsuario(vUser);
+
 
 	
 	getch();
 	
 	return 0;
+}
+
+void combinacionUsuario(int v[])
+{
+
+for (int i=0;i<2;i++)
+{
+v[i]= pideNumEntreRango(0,9);
+
+
+}
+}
+pideNumEntreRango(min, max)
+{
+	int num;
+
+	do
+	{
+		printf("\nIntroduce un numero entre 0 y 9: ");
+		scanf("%d", &num);
+	} while (num < 0 || num > 9);
+
+	return num;
 }
