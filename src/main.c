@@ -25,16 +25,21 @@ posición, simplemente es necesario que sean iguales.
 void combinacionUsuario(int[]);
 int pideNumEntreRango(int, int);
 void combinacionGanadora(int[]);
-// int calculaAciertos(int [], int []);
+int calculaAciertos(int [], int [], int);
 
 int main()
 {
 	int vUser[2];
 	int vRand[2];
+	int aciertos=0;
+	srand (getpid());
 
 	printf("BIENVENIDOS AL PROGRAMA DE LOTERIA DOBLE ACIERTO:\n");
 	combinacionUsuario(vUser);
 	combinacionGanadora(vRand);
+	calculaAciertos(vUser, vRand, aciertos);
+	system("pause");
+	
 
 	getch();
 
@@ -48,6 +53,12 @@ void combinacionUsuario(int v[])
 	{
 		v[i] = pideNumEntreRango(0, 9);
 	}
+	printf("\nLa combinaion del usuario es: ");
+	for (int i=0; i<2; i++)
+	{
+		printf("%d   ",v[i]);
+	}
+	
 }
 pideNumEntreRango(min, max)
 {
@@ -67,4 +78,35 @@ for (int i = 0; i < 2; i++)
 	{
 		v[i] = rand() %10;
 	}
+printf("\nLa combinaion ganadora es: ");
+	for (int i=0; i<2; i++)
+	{
+		printf("%d   ",v[i]);
+	}
+}
+calculaAciertos(int vU[], int vR[], int aciertos)
+{
+	
+for(int i=0; i<2;i++)
+{
+	if (vU[i]==vR[i])
+	{
+		aciertos++;
+	}
+}
+switch (aciertos)
+{
+case 0:
+	printf("\n\n\nNo has acertado ningun numero.\n\n");
+	break;
+case 1:
+	printf("\n\n\nHas acertado 1 numero.\n\n");
+	break;
+case 2:
+	printf("\n\n\nHas acertado los 2 numeros.\n\n");
+	break;
+
+
+}
+return aciertos;
 }
